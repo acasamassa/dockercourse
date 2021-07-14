@@ -18,34 +18,47 @@ Ejemplos:
 
  - Crear imágenes
 
-Creamos una carpeta para las DockerFiles
+Creamos una carpeta para las DockerFiles:
+
 `mkdir docker-images`
-Creamos un archivo dockerfile
+
+Creamos un archivo dockerfile:
+
 `nano dockerfile`
-Agregamos el contenido
+
+Agregamos el contenido:
+
 `FROM centos
 RUN yum -y install httpd
 CMD apachectl -DFOREGROUND`
-Construimos la imagen
+
+Construimos la imagen:
+
 `docker buil --tag nombre_de_la_imagen:tag_de_la_imagen punto_que_toma_el_archivo
 docker build --tag apacheycentos .
 docker build --tag apacheycentos:primera .`
 
-Tiene que ser lo más automático posible, si no tenemos el -y, el build falla debido a que no hay confirmación.
+(Tiene que ser lo más automático posible, si no tenemos el -y, el build falla debido a que no hay confirmación)
 
-Para ver las imágenes
+Para ver las imágenes:
+
 `docker images | grep centos`
 
-Para ver la historia de las imágenes
+Para ver la historia de las imágenes:
+
 `docker history -H apacheycentos:latest`
 
-Para ver contenedores activos
+Para ver contenedores activos:
+
 `docker ps -a`
 
-Para borrar contenedor`
-docker rm -fv nombre_del_contenedor`
+Para borrar contenedor:
 
-Para levantar el contenedor (-d para que lo haga en segundo plano, -p para definir el puerto -> puerto del server : puerto del contenedor)
+`docker rm -fv nombre_del_contenedor`
+
+Para levantar el contenedor (-d para que lo haga en segundo plano, -p para definir el puerto -> puerto del server : puerto del contenedor):
+
 `docker run -d --name nombre_del_contenedor -p 80:80 nombre_de_la_imagen
 docker run -d --name hola -p 80:80 apacheycentos`
+
 (sin la capa CMD, el contenedor inicia y muere solo)
