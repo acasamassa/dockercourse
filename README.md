@@ -40,13 +40,13 @@ Construimos la imagen:
 
 `docker build --tag apacheycentos .`
 
-`docker build --tag apacheycentos:primera .`
+`docker build --tag apacheycentos:1 .`
 
 (Tiene que ser lo más automático posible, si no tenemos el -y, el build falla debido a que no hay confirmación)
 
 Para ver las imágenes:
 
-`docker images | grep centos`
+`docker images`
 
 Para ver la historia de las imágenes:
 
