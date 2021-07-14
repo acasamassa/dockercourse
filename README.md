@@ -28,15 +28,19 @@ Creamos un archivo dockerfile:
 
 Agregamos el contenido:
 
-`FROM centos
+```
+FROM centos
 RUN yum -y install httpd
-CMD apachectl -DFOREGROUND`
+CMD apachectl -DFOREGROUND
+```
 
 Construimos la imagen:
 
-`docker buil --tag nombre_de_la_imagen:tag_de_la_imagen punto_que_toma_el_archivo
-docker build --tag apacheycentos .
-docker build --tag apacheycentos:primera .`
+`docker build --tag nombre_de_la_imagen:tag_de_la_imagen punto_que_toma_el_archivo`
+
+`docker build --tag apacheycentos .`
+
+`docker build --tag apacheycentos:primera .`
 
 (Tiene que ser lo más automático posible, si no tenemos el -y, el build falla debido a que no hay confirmación)
 
