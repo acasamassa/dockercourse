@@ -34,6 +34,14 @@ RUN yum -y install httpd
 CMD apachectl -DFOREGROUND
 ```
 
+En Windows:
+
+```
+echo FROM centos >> Dockerfile
+echo RUN yum -y install httpd >> Dockerfile
+echo CMD apachectl -DFOREGROUND >> Dockerfile
+```
+
 Construimos la imagen:
 
 `docker build --tag nombre_de_la_imagen[:tag_de_la_imagen] path_del_archivo`
