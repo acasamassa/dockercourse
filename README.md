@@ -36,7 +36,7 @@ CMD apachectl -DFOREGROUND
 
 Construimos la imagen:
 
-`docker build --tag nombre_de_la_imagen:tag_de_la_imagen punto_que_toma_el_archivo`
+`docker build --tag nombre_de_la_imagen[:tag_de_la_imagen] path_del_archivo`
 
 `docker build --tag apacheycentos .`
 
