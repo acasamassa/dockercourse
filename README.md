@@ -58,9 +58,9 @@ Para ver las imágenes:
 
 Para levantar el contenedor (-d para que lo haga en segundo plano, -p para definir el puerto -> puerto del server : puerto del contenedor):
 
-`docker run -d --name nombre_del_contenedor -p 80:80 nombre_de_la_imagen`
+`docker run -d --name nombre_del_contenedor -p 8080:80 nombre_de_la_imagen`
 
-`docker run -d --name hola -p 80:80 apacheycentos`
+`docker run -d --name hola -p 8080:80 apacheycentos`
 
 (Sin la capa CMD, el contenedor inicia y muere solo)
 
