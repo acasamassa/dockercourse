@@ -6,3 +6,11 @@ Imágenes oficiales creadas por las empresas creadoras de productos como Mongo, 
 Para descargar una imagen:
 
 `docker pull nombre_de_la_imagen[:version]`
+
+Ejemplos:
+
+`docker pull mysql`
+
+`docker pull mysql:latest`
+
+`docker pull mysql:5.7`
