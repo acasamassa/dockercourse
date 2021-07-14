@@ -76,6 +76,18 @@ Para borrar contenedor:
 
 `docker rm -fv nombre_del_contenedor`
 
+Para eliminar la imagen:
 
+`docker rmi [tag|nombre|id]`
+
+Ejemplo:
+
+`docker rmi mysql`
+
+`docker rmi mysql apacheycentos`
+
+Cambiar el nombre del dockerfile (si usamos un nombre diferente a “dockerfile”, lo declaramos con -f):
+
+`docker build -t test -f my-dockerfile .`
 
 
