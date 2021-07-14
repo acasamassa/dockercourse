@@ -15,6 +15,7 @@ Ejemplos:
 
 `docker pull mysql:5.7`
 
+https://hub.docker.com/_/mysql
 
  - Crear imágenes
 
