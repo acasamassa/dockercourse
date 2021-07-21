@@ -1,6 +1,6 @@
 # Change Dockerfile Name
 
-Move to folder 02-CreateImages
+Move to folder 03-ChangeDockerfileName
 
 `cd 03-ChangeDockerfileName/`
 
