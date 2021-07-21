@@ -1,8 +1,5 @@
 # Docker - Images & Containers
 
-Cambiar el nombre del dockerfile (si usamos un nombre diferente a “dockerfile”, lo declaramos con -f):
-
-`docker build -t test -f my-dockerfile .`
 
 # Docker Containers
 
