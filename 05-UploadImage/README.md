@@ -10,7 +10,7 @@ To push your image to Docker Hub:
 
 Example:
 
-`docker built -t acasamassapwc/dockercourse:05uploadimage .`
+`docker build -t acasamassapwc/dockercourse:05uploadimage .`
 
 
 
