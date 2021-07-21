@@ -20,7 +20,7 @@ https://hub.docker.com/_/mysql
 
 To check your images:
 
-`docker image`
+`docker images`
 
 To delete an image:
 
