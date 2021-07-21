@@ -1,5 +1,9 @@
 # Change Dockerfile Name
 
+Move to folder 02-CreateImages
+
+`cd 03-ChangeDockerfileName/`
+
 Specify a different dockerfile:
 
 `docker build -t 03myapp -f 03my-dockerfile .`
