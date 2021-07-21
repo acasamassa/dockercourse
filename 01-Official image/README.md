@@ -24,7 +24,7 @@ To check your images:
 
 To delete an image:
 
-`docker rmi [name or id]`
+`docker rmi [name, id, version]`
 
 Examples:
 
