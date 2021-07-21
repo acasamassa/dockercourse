@@ -22,124 +22,49 @@ List your images:
 
 Now run your first app:
 
+`docker run -d --name container_name -p host_port:container_port image_name`
+
  - --detach or -d: Run container in background and print container ID
 
  - --name: Assign a name to the container
 
  - --publish or -p: Publish a container's port(s) to the host
 
+`docker run -d --name 02myapprunning -p 8080:80 02myapp`
 
-
-Para levantar el contenedor (-d para que lo haga en segundo plano, -p para definir el puerto -> puerto del server : puerto del contenedor):
-
-`docker run -d --name nombre_del_contenedor -p 8080:80 nombre_de_la_imagen`
-
-`docker run -d --name hola -p 8080:80 apacheycentos`
-
-(Sin la capa CMD, el contenedor inicia y muere solo)
-
-Para ver la historia de las imágenes:
-
-`docker history -H apacheycentos:latest`
-
-Para ver contenedores activos:
+To check active containers:
 
 `docker ps -a`
 
-Para borrar contenedor:
+ - --all or -a: Show all containers (default shows just running)
 
-`docker rm -fv nombre_del_contenedor`
+Access to your service:
 
-Para eliminar la imagen:
+`http://localhost:8080`
 
-`docker rmi [tag|nombre|id]`
+To check your image's history:
 
-Ejemplo:
+`docker image history image_name[:version]`
 
-`docker rmi mysql`
+`docker image history 02myapp`
 
-`docker rmi mysql apacheycentos`
+To sisplay detailed information of your image:
 
-Cambiar el nombre del dockerfile (si usamos un nombre diferente a “dockerfile”, lo declaramos con -f):
+`docker image inspect image_name[:version]`
 
-`docker build -t test -f my-dockerfile .`
+`docker image inspect i02myapp`
 
-# Docker Containers
+To delete a container:
 
-- Listar contenedores:
+`docker rm -fv container_name`
 
-`docker ps`
+ - --force or -f: Force the removal of a running container (uses SIGKILL)
+ - --volumes or -v: Remove volumes associated with the container
 
-Listar contenedores incluyendo aquellos detenidos:
+ Example:
 
-`docker ps -a`
+`docker rm -fv 02myapprunning`
 
-Mapear puertos -> se expone el puerto_del_host:puerto_del_contenedor:
 
-`docker run -d -p 8080:8080 jenkins`
 
-`docker run -d -p 9090:8080 jenkins`
-
-Renombrar contenedor:
-
-`docker rename nombre_antiguo nombre_nuevo`
-
-`docker rename hola hola2`
-
-Detener un contenedor (no lo elimina):
-
-`docker stop nombre_contenedor`
-
-Iniciar un contenedor detenido:
-
-`docker start nombre_contenedor`
-
-Reiniciar un contenedor:
-
-`docker restart nombre_contenedor`
-
-(Estos comandos se usan, por ejemplo, cuando el contenedor está consumiendo mucha RAM y se requiere reiniciarlo.)
-
-Ingresar al operativo de un contenedor:
-
-`docker exec [-u root] -ti nombre_contenedor bash`
-
-- ti: terminal interactive
-- u: para elegir el usuario
-
-Eliminar todos los contenedores que están corriendo:
-
-`docker ps -q | xargs docker rm -f`
-
-Crear variable de entorno en el contenedor (no en la imagen):
-
-`docker run -dti -e “variable=valor” --name nombre nombre_imagen`
- 
-Limitar RAM:
-
-`docker run -d -m 500mb nombre_imagen`
-
-Limitar CPUs:
-
-`docker run -d --cpuset-cpus 0-1 nombre_imagen`
-
-(Asumiendo que tengo 4 CPUs, se autonombran como 0,1, 2 y 3. Con ese comando le indico que use dos CPUs, el 0 y el 1.)
-
-Copiar archivos (para copiar archivos desde fuera del contenedor hacia dentro del contenedor):
-
-`docker cp miarchivo nombre_contenedor:/path/to/copy/file`
-
-y viceversa:
-
-`docker cp nombre_contenedor:/path/file.log /path/to/copy/file`
-
-Para convertir un contenedor en una imagen:
-
-`docker commit nombre_contenedor nombre_imagen_resultante`
-
-Para hacer que un contenedor se elimine automáticamente cuando se deje de utilizar:
-
-`docker -run --rm -ti centos bash`
-
-Cuando se sale del mismo, automáticamente se elimina. Se omite el -d para no enviarlo al fondo.
 
