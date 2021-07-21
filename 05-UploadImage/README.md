@@ -16,6 +16,10 @@ Example:
 
 `docker build -t acasamassapwc/dockercourse:05uploadimage .`
 
+Login to Docker Hub:
+
+`docker login -u user_name -p user_pass`
+
 Then, push your image:
 
 `docker push docker_hub_id/image_name:tag .`
@@ -23,4 +27,8 @@ Then, push your image:
 Example:
 
 `docker push acasamassapwc/dockercourse:05uploadimage`
+
+Pull my image:
+
+`docker pull acasamassapwc/dockercourse:05uploadimage`
 
