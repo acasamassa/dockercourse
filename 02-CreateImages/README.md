@@ -48,11 +48,11 @@ To check your image's history:
 
 `docker image history 02myapp`
 
-To sisplay detailed information of your image:
+To display detailed information of your image:
 
 `docker image inspect image_name[:version]`
 
-`docker image inspect i02myapp`
+`docker image inspect 02myapp`
 
 To delete a container:
 
