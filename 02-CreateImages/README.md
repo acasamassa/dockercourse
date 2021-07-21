@@ -12,6 +12,10 @@ Build the image:
 
 `docker build --tag image_name[:image_tag] path`
 
+ - --tag or -t: Name and optionally a tag in the 'name:tag' format
+
+Example:
+
 `docker build --tag 02myapp .`
 
 `docker build --tag 02myapp:v1 .`   <-- Use this for the first time
@@ -30,6 +34,8 @@ Now run your first app:
 
  - --publish or -p: Publish a container's port(s) to the host
 
+Example:
+
 `docker run -d --name 02myapprunning -p 8080:80 02myapp`  <-- It will fail because for the tag, now run `docker build --tag 02myapp .`
 
 To check active containers:
@@ -46,11 +52,15 @@ To check your image's history:
 
 `docker image history image_name[:version]`
 
+Example:
+
 `docker image history 02myapp`
 
 To display detailed information of your image:
 
 `docker image inspect image_name[:version]`
+
+Example:
 
 `docker image inspect 02myapp`
 
