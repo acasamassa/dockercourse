@@ -14,7 +14,7 @@ Build the image:
 
 `docker build --tag 02myapp .`
 
-`docker build --tag 02myapp:v1 .`
+`docker build --tag 02myapp:v1 .`   <-- Use this for the first time
 
 List your images:
 
@@ -30,7 +30,7 @@ Now run your first app:
 
  - --publish or -p: Publish a container's port(s) to the host
 
-`docker run -d --name 02myapprunning -p 8080:80 02myapp`
+`docker run -d --name 02myapprunning -p 8080:80 02myapp`  <-- It will fail because for the tag, now run `docker build --tag 02myapp .`
 
 To check active containers:
 
