@@ -1,0 +1,5 @@
+FROM centos
+RUN fallocate -l 10M /opt/file1
+RUN fallocate -l 20M /opt/file2
+RUN fallocate -l 30M /opt/file3
+
