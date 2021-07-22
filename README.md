@@ -1,42 +1,5 @@
 # Docker - Images & Containers
 
-
-# Docker Containers
-
-- Listar contenedores:
-
-`docker ps`
-
-Listar contenedores incluyendo aquellos detenidos:
-
-`docker ps -a`
-
-Mapear puertos -> se expone el puerto_del_host:puerto_del_contenedor:
-
-`docker run -d -p 8080:8080 jenkins`
-
-`docker run -d -p 9090:8080 jenkins`
-
-Renombrar contenedor:
-
-`docker rename nombre_antiguo nombre_nuevo`
-
-`docker rename hola hola2`
-
-Detener un contenedor (no lo elimina):
-
-`docker stop nombre_contenedor`
-
-Iniciar un contenedor detenido:
-
-`docker start nombre_contenedor`
-
-Reiniciar un contenedor:
-
-`docker restart nombre_contenedor`
-
-(Estos comandos se usan, por ejemplo, cuando el contenedor está consumiendo mucha RAM y se requiere reiniciarlo.)
-
 Ingresar al operativo de un contenedor:
 
 `docker exec [-u root] -ti nombre_contenedor bash`
