@@ -1,4 +1,8 @@
-# Docker - Images & Containers
+# Commit Image
+
+Move to folder 10-CommitImage
+
+`cd 10-CommitImage/`
 
 Create a new image from a container’s changes:
 
