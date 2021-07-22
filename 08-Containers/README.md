@@ -37,3 +37,7 @@ Start stopped containers:
 Restart one or more containers:
 
 `docker restart container_name`
+
+To delete a container:
+
+`docker rm -fv 02myapprunningrenamed`
