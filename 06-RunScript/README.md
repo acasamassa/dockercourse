@@ -20,6 +20,16 @@ Check active containers:
 
 `docker ps -a`
 
+Verify the scritp:
+
+`docker logs -f container_name`
+
+ - --follow or -f: Follow log output
+
+Example:
+
+`docker logs -f 06myapprunning`
+
 Access to your service:
 
 `http://localhost:8083`
