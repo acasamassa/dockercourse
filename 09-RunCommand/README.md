@@ -11,6 +11,7 @@ Run a command in a running container:
 Example:
 
 `docker run --name 09myapprunning -p 8082:80 -d 04myapp:latest`
+
 `docker exec -u root -ti 09myapprunning bash`
 
 - --user or -u: Username or UID
@@ -20,6 +21,7 @@ Example:
 Copy files/folders between a container and the local filesystem:
 
 `docker cp file.log container_name:/path/to/copy/file.log`
+
 `docker cp container_name:/path/file.log /path/to/copy/file.log`
 
 Example:
