@@ -8,7 +8,7 @@ Build your image:
 
 ## Types of volumes
 
-- Host volumes: “I want my data to be here specifically”
+### Host volumes: “I want my data to be here specifically”
  
 To create and map a host volumen:
 
@@ -38,7 +38,7 @@ Delete container:
 
 `docker rm -fv 11-01myapprunning`
 
-- Anonymous volumes: “I just want a volume”
+### Anonymous volumes: “I just want a volume”
 
 To create an anonymous volumen:
 
@@ -62,7 +62,7 @@ To delete a volume manually:
 
 `docker volume rm [volume_name]`
 
-- Named volumes: “I want to refer to my data later easily”
+### Named volumes: “I want to refer to my data later easily”
 
 To create a volumen:
 
