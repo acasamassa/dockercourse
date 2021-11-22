@@ -20,24 +20,35 @@ Delete the container:
 
 `docker rm -fv 11-01myapprunning`
 
+## Types of volumes
 
-Types of volumes:
-
- - Host volumes: A host volume can be accessed from within a Docker container and is stored on the host in a location defined by us. It is suggested to use a host volume when you need to know where to refer to the data. It’s also the easiest type of volume to use, so it’s ideal for simple projects.
+ - Host volumes: “I want my data to be here specifically”
  
- To create and map a host volumen:
+To create and map a host volumen:
 
- 'docker run -d -p 3306:3306 --name my-db -e MYSQL_ROOT_PASSWORD=12345678 -v /home/ayelen/mysql/:/var/lib/mysql mysql'
+`docker run -v [host_path]:[container_path] [docker_image]`
 
- Example:
+- --volume or -v:		Bind mount a volume
 
- docker run -d -p 3306:3306 --name my-db -e MYSQL_ROOT_PASSWORD=12345678 -v /home/ayelen/mysql/:/var/lib/mysql mysql
+Example:
 
+`docker run -it -v "$(pwd)":/data1 11-01myapp:latest`
+
+List volumes:
+
+`docker volume ls`
 
 
  - Anonymous volumes: The location of anonymous volumes is managed by Docker. Note that it can be difficult to refer to the same volume when it is anonymous. These volumes provide flexibility, but they aren’t used as often now that named volumes have been introduced.
 
  - Named volumes: Named and anonymous volumes are similar in that Docker manages where they are located. However, as you might guess, named volumes can be referred to by specific names. Like anonymous volumes, named volumes provide flexibility, but they are also explicit. This makes them easier to manage.
+
+To create a volumen:
+
+`docker volume create [volume_name]`
+
+`docker volume create myvolumen`
+
 
 
 
