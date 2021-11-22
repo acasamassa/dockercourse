@@ -6,42 +6,63 @@ Build your image:
 
 `docker build -t 11-01myapp .`
 
-Run your container:
-
-`docker run --name 11-01myapprunning -p 8085:80 -d 11-01myapp:latest`
-
-List volumes:
-
-`docker volume ls`
-
-Any file written to a location which is not a docker volume is written on the writable layer of the docker container file system.
-
-Delete the container:
-
-`docker rm -fv 11-01myapprunning`
-
 ## Types of volumes
 
- - Host volumes: “I want my data to be here specifically”
+- Host volumes: “I want my data to be here specifically”
  
 To create and map a host volumen:
 
 `docker run -v [host_path]:[container_path] [docker_image]`
 
-- --volume or -v:		Bind mount a volume
+- --volume or -v: Bind mount a volume
 
 Example:
 
-`docker run -it -v "$(pwd)":/data1 11-01myapp:latest`
+Create a file named test.txt on the following Windows path: C:\testdocker
 
-List volumes:
+To create and map a host volumen:
+
+`docker run --name 11-01myapprunning -p 8085:80 -d -v C:\testdocker:/data1 11-01myapp:latest`
+
+Verify:
+
+`docker exec -u root -ti 11-01myapprunning bash`
+
+`cat /data1/test.txt`
+
+Exit and list volumes:
 
 `docker volume ls`
 
+Delete container:
 
- - Anonymous volumes: The location of anonymous volumes is managed by Docker. Note that it can be difficult to refer to the same volume when it is anonymous. These volumes provide flexibility, but they aren’t used as often now that named volumes have been introduced.
+`docker rm -fv 11-01myapprunning`
 
- - Named volumes: Named and anonymous volumes are similar in that Docker manages where they are located. However, as you might guess, named volumes can be referred to by specific names. Like anonymous volumes, named volumes provide flexibility, but they are also explicit. This makes them easier to manage.
+- Anonymous volumes: “I just want a volume”
+
+To create an anonymous volumen:
+
+`docker run --name 11-01myapprunning -p 8085:80 -d -v /data1 11-01myapp:latest`
+
+Verify:
+
+`docker exec -u root -ti 11-01myapprunning bash`
+
+`ls /data1/`
+
+Exit and list volumes:
+
+`docker volume ls`
+
+Delete container (-f: does not delete the volume, -v: deletes the volume):
+
+`docker rm -f 11-01myapprunning`
+
+To delete a volume manually: 
+
+`docker volume rm [volume_name]`
+
+- Named volumes: “I want to refer to my data later easily”
 
 To create a volumen:
 
@@ -49,9 +70,30 @@ To create a volumen:
 
 `docker volume create myvolumen`
 
+Assing the volume:
 
+`docker run --name 11-01myapprunning -p 8085:80 -d -v myvolumen:/data1 11-01myapp:latest`
 
+Delete container (-v: won't delete the volume):
 
-Delete the container:
+`docker rm -fv 11-01myapprunning`
 
-`docker rm -fv 04myapprunning`
+List volumes:
+
+`docker volume ls`
+
+To inspect the volume:
+
+`docker volume inspect [volume_name]`
+
+`docker volume inspect myvolumen`
+
+To delete a volume manually: 
+
+`docker volume rm [volume_name]`
+
+`docker volume rm myvolumen`
+
+List volumes:
+
+`docker volume ls`
