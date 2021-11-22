@@ -14,7 +14,7 @@ To create and map a host volumen:
 
 `docker run -v [host_path]:[container_path] [docker_image]`
 
-- --volume or -v: Bind mount a volume
+-- --volume or -v: Bind mount a volume
 
 Example:
 
